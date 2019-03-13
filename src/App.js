@@ -1,16 +1,12 @@
 import React from "react";
-import { render } from "react-dom";
-import Pet from "./Pet";
+import Form from "./components/Form";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Adopt me</h1>
-        <Pet name="daisy" animal="dog" />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <>
+      <Form />
+    </>
+  );
+};
 
-render(<App />, document.getElementById("root"));
+export default App;
