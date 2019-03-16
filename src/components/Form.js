@@ -6,22 +6,22 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
-const Form = () => {
+const Form = ({ addToDo }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = () => {
-    alert(inputValue);
+    addToDo(inputValue);
+    setInputValue("");
   };
+
   return (
     <Wrapper>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
-        />
-        <input type="submit" value="Add todo" />
-      </form>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={e => setInputValue(e.target.value)}
+      />
+      <button onClick={handleSubmit}>addToDo</button>
     </Wrapper>
   );
 };
