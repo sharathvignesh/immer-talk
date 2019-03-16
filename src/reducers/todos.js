@@ -1,6 +1,14 @@
 import produce from "immer";
 
-const todos = (state = [], action) => {
+const initialState = [
+  {
+    id: 1,
+    text: "complete app",
+    completed: false
+  }
+];
+
+const todos = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case "ADD_TODO":
@@ -17,6 +25,5 @@ const todos = (state = [], action) => {
         break;
     }
   });
-};
 
 export default todos;
