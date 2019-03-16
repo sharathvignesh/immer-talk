@@ -1,12 +1,6 @@
 import produce from "immer";
 
-const initialState = [
-  {
-    id: 1,
-    text: "complete app",
-    completed: false
-  }
-];
+const initialState = [];
 
 const todos = (state = initialState, action) =>
   produce(state, draft => {
