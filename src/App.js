@@ -1,16 +1,33 @@
 import React from "react";
-import { render } from "react-dom";
-import Pet from "./Pet";
+import { connect } from "react-redux";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Adopt me</h1>
-        <Pet name="daisy" animal="dog" />
-      </div>
-    );
-  }
-}
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
+import { toDoActions } from "./actions/";
 
-render(<App />, document.getElementById("root"));
+const App = props => {
+  const addToDo = item => {
+    const { addToDo } = props;
+    addToDo(item);
+  };
+
+  return (
+    <>
+      <Form addToDo={addToDo} />
+      <TodoList items={props.todos} />
+    </>
+  );
+};
+
+const mapStoreToProps = store => ({
+  todos: store.todos
+});
+
+const mapActionsToProps = dispatch => ({
+  addToDo: actionItem => dispatch(toDoActions.addTodo(actionItem))
+});
+
+export default connect(
+  mapStoreToProps,
+  mapActionsToProps
+)(App);
