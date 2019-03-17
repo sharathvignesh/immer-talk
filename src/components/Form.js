@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Wrapper = styled.section`
   padding: 4em;
   background: papayawhip;
+  text-align: -webkit-center;
 `;
 
 const Input = styled("input")`
@@ -44,9 +45,10 @@ const Form = ({ addToDo }) => {
         type="text"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
+        placeholder="add an item"
       />
       <Button primary onClick={handleSubmit}>
-        addToDo
+        add todo
       </Button>
     </Wrapper>
   );
