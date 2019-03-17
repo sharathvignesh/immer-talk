@@ -6,6 +6,30 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
+const Input = styled("input")`
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 300px;
+
+  &:focus {
+    outline: none !important;
+    border-color: #719ece;
+    box-shadow: 0 0 10px #719ece;
+  }
+`;
+
+const Button = styled("button")`
+  background: ${props => (props.primary ? "#607D8B" : "white")};
+  color: ${props => (props.primary ? "white" : "#607D8B")};
+  outline: none !important;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid #607d8b;
+  border-radius: 3px;
+`;
+
 const Form = ({ addToDo }) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -16,12 +40,14 @@ const Form = ({ addToDo }) => {
 
   return (
     <Wrapper>
-      <input
+      <Input
         type="text"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />
-      <button onClick={handleSubmit}>addToDo</button>
+      <Button primary onClick={handleSubmit}>
+        addToDo
+      </Button>
     </Wrapper>
   );
 };

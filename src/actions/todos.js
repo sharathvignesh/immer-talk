@@ -6,4 +6,13 @@ const addTodo = text => ({
   text
 });
 
-export default { addTodo };
+const toggleToDo = id => ({
+  type: "TOGGLE_TODO",
+  id
+});
+
+const deleteToDo = id => ({
+  type: "DELETE_TODO",
+  id
+});
+export default { addTodo, toggleToDo, deleteToDo };
