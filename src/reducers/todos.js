@@ -16,7 +16,12 @@ const todos = (state = initialState, action) =>
         draft = draft.map(todo =>
           todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
         );
-        break;
+        return draft;
+      case "DELETE_TODO":
+        draft = produce(draft, draftState =>
+          draftState.filter(todo => todo.id !== action.id)
+        );
+        return draft;
     }
   });
 
