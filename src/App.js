@@ -34,7 +34,7 @@ const App = props => {
 };
 
 const mapStoreToProps = store => ({
-  todos: store.todos
+  todos: store.todos.list
 });
 
 const mapActionsToProps = dispatch => ({
